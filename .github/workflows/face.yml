@@ -2,9 +2,11 @@ name: Update face
 
 on:
   schedule:
-    # GitHub often delays or drops scheduled runs, so check every 15 minutes.
-    # The script decides using Melbourne time (DST handled) and only commits on a change.
-    - cron: "4,19,34,49 * * * *"
+    # Only around 7am and 7pm Melbourne time. Cron is UTC and Melbourne is UTC+11 in
+    # summer, UTC+10 in winter, so cover both hours: 8-9 UTC (evening), 20-21 UTC (morning).
+    # Runs at :10, :20 ... :50 so a delayed or dropped run gets retried within the window.
+    # The script decides using Melbourne time and only commits on a change.
+    - cron: "10-50/10 8,9,20,21 * * *"
   workflow_dispatch:
 
 permissions:
