@@ -4,9 +4,9 @@ on:
   schedule:
     # Only around 7am and 7pm Melbourne time. Cron is UTC and Melbourne is UTC+11 in
     # summer, UTC+10 in winter, so cover both hours: 8-9 UTC (evening), 20-21 UTC (morning).
-    # Runs at :10, :20 ... :50 so a delayed or dropped run gets retried within the window.
+    # Runs at :10, with one retry at :30 in case GitHub drops a scheduled run.
     # The script decides using Melbourne time and only commits on a change.
-    - cron: "10-50/10 8,9,20,21 * * *"
+    - cron: "10,30 8,9,20,21 * * *"
   workflow_dispatch:
 
 permissions:
