@@ -2,7 +2,9 @@ name: Update face
 
 on:
   schedule:
-    - cron: "7 * * * *"   # hourly; the script decides using Melbourne time, so DST is handled
+    # GitHub often delays or drops scheduled runs, so check every 15 minutes.
+    # The script decides using Melbourne time (DST handled) and only commits on a change.
+    - cron: "4,19,34,49 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +14,7 @@ jobs:
   face:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Pick awake or asleep
         run: |
           hour=$(TZ=Australia/Melbourne date +%-H)
