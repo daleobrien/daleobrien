@@ -1,0 +1,25 @@
+name: Update face
+
+on:
+  schedule:
+    - cron: "7 * * * *"   # hourly; the script decides using Melbourne time, so DST is handled
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  face:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick awake or asleep
+        run: |
+          hour=$(TZ=Australia/Melbourne date +%-H)
+          if [ "$hour" -ge 7 ] && [ "$hour" -lt 19 ]; then state=awake; else state=asleep; fi
+          sed -i -E "s#faces/(awake|asleep)-#faces/${state}-#g; s#Dale is (awake|asleep)#Dale is ${state}#" README.md
+          if git diff --quiet; then echo "Already ${state}"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Face: ${state}"
+          git push
