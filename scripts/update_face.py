@@ -1,18 +1,20 @@
 """Decide whether the face is awake or asleep, and update status.json and README.md.
 
 EVENT is the GitHub event name; ACTION is the repository_dispatch type ("sleep" or "wake").
-A phone event always wins. The clock (awake 7am-7pm Melbourne time) is only a fallback
-for when the phone hasn't reported for FALLBACK_AFTER.
+A phone event always sets the face. The clock only nudges it: from 10pm it goes to sleep
+if it isn't already asleep, and from 7am it wakes up if it isn't already awake. At any
+other time a scheduled run does nothing.
 """
 
 import json
 import os
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 MELBOURNE = ZoneInfo("Australia/Melbourne")
-FALLBACK_AFTER = timedelta(hours=16)
+SLEEP_HOURS = (22, 23)  # 10pm and 11pm: go to sleep if still awake
+WAKE_HOURS = (7, 8)  # 7am and 8am: wake up if still asleep
 STATUS = "status.json"
 README = "README.md"
 
@@ -31,13 +33,14 @@ if event == "repository_dispatch" and action in ("sleep", "wake"):
     state = "asleep" if action == "sleep" else "awake"
     source = "phone"
 else:
-    last = status.get("updated")
-    if status.get("source") == "phone" and last:
-        if now - datetime.fromisoformat(last) < FALLBACK_AFTER:
-            print("Phone reported recently, leaving the face alone")
-            raise SystemExit(0)
     hour = now.astimezone(MELBOURNE).hour
-    state = "awake" if 7 <= hour < 19 else "asleep"
+    if hour in SLEEP_HOURS:
+        state = "asleep"
+    elif hour in WAKE_HOURS:
+        state = "awake"
+    else:
+        print(f"{hour}:00 in Melbourne is outside the sleep and wake windows, nothing to do")
+        raise SystemExit(0)
     source = "clock"
 
 if status.get("state") == state:

@@ -4,12 +4,12 @@ on:
   # Sent by the iPhone Shortcuts automations when Sleep Focus turns on or off.
   repository_dispatch:
     types: [sleep, wake]
-  # Clock fallback, only around 7am and 7pm Melbourne time. Cron is UTC and Melbourne is
-  # UTC+11 in summer, UTC+10 in winter, so cover both hours: 8-9 UTC (evening), 20-21 UTC
-  # (morning). Runs at :10, with one retry at :30 in case GitHub drops a scheduled run.
-  # It does nothing if the phone has reported in the last 16 hours.
+  # Clock nudge: at 10pm Melbourne time go to sleep if still awake, at 7am wake up if still
+  # asleep. Cron is UTC and Melbourne is UTC+11 in summer, UTC+10 in winter, so each needs
+  # two UTC hours: 11-12 UTC (10pm), 20-21 UTC (7am). The script checks the local hour, so
+  # the off-season run does nothing. :10 with a retry at :30 in case GitHub drops a run.
   schedule:
-    - cron: "10,30 8,9,20,21 * * *"
+    - cron: "10,30 11,12,20,21 * * *"
   workflow_dispatch:
 
 permissions:
