@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="faces/awake-dark.svg">
-  <img src="faces/awake-light.svg" width="120" align="right" alt="Dale is awake">
+  <source media="(prefers-color-scheme: dark)" srcset="faces/reduce-dark.svg">
+  <img src="faces/reduce-light.svg" width="120" align="right" alt="Dale is keeping things quiet">
 </picture>
 
 ### G'day, I'm Dale 👋

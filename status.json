@@ -1,8 +1,9 @@
 {
-  "state": "awake",
-  "since": "2026-11-18T09:17:50+00:00",
-  "updated": "2026-11-18T09:17:50+00:00",
+  "state": "reduce",
+  "since": "2026-11-18T09:18:00+00:00",
+  "updated": "2026-11-18T09:18:00+00:00",
   "source": "phone",
-  "label": "awake",
-  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/awake-light.svg"
+  "expires": "2026-11-18T17:18:00+00:00",
+  "label": "keeping things quiet",
+  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/reduce-light.svg"
 }
