@@ -25,7 +25,7 @@ WAKE_HOURS = (7, 8)  # 7am and 8am: wake up if still asleep
 STATUS = "status.json"
 README = "README.md"
 
-# state: (words after "Dale is" in the README alt text, hours before it lapses to awake)
+# state: (label, hours before it lapses to awake). The README alt text is "Dale is <label>".
 STATES = {
     "awake": ("awake", None),
     "asleep": ("asleep", None),
@@ -38,6 +38,7 @@ STATES = {
     "dnd": ("heads down", 8),
     "personal": ("free", 12),
 }
+FACE_URL = "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/{}-light.svg"
 ALIASES = {"sleep": "asleep", "wake": "asleep-off"}
 
 now = datetime.now(timezone.utc).replace(microsecond=0)
@@ -89,6 +90,9 @@ else:
     lapse = STATES[state][1]
     if lapse:
         status["expires"] = (now + timedelta(hours=lapse)).isoformat()
+
+status["label"] = STATES[state][0]
+status["face"] = FACE_URL.format(state)
 
 with open(STATUS, "w") as f:
     json.dump(status, f, indent=2)
