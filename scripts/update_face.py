@@ -36,6 +36,7 @@ STATES = {
     "reading": ("reading", 4),
     "mindfulness": ("being mindful", 2),
     "dnd": ("heads down", 8),
+    "reduce": ("keeping things quiet", 8),
     "personal": ("free", 12),
 }
 FACE_URL = "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/{}-light.svg"

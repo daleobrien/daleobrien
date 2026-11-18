@@ -21,6 +21,8 @@ on:
       - mindfulness-off
       - dnd
       - dnd-off
+      - reduce
+      - reduce-off
       - personal
       - personal-off
   # Clock nudge: at 10pm Melbourne time go to sleep if still awake, at 7am wake up if still
