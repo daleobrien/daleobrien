@@ -1,9 +1,8 @@
 {
-  "state": "personal",
-  "since": "2026-11-18T09:17:24+00:00",
-  "updated": "2026-11-18T09:17:24+00:00",
+  "state": "awake",
+  "since": "2026-11-18T09:17:50+00:00",
+  "updated": "2026-11-18T09:17:50+00:00",
   "source": "phone",
-  "expires": "2026-11-18T21:17:24+00:00",
-  "label": "free",
-  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/personal-light.svg"
+  "label": "awake",
+  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/awake-light.svg"
 }
