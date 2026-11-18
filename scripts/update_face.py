@@ -40,7 +40,8 @@ STATES = {
     "personal": ("free", 12),
 }
 FACE_URL = "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/{}-light.svg"
-ALIASES = {"sleep": "asleep", "wake": "asleep-off"}
+# Personal Focus just means awake; its "off" then never matches, so it does nothing.
+ALIASES = {"sleep": "asleep", "wake": "asleep-off", "personal": "awake"}
 
 now = datetime.now(timezone.utc).replace(microsecond=0)
 
