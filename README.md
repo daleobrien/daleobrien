@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="faces/dnd-dark.svg">
-  <img src="faces/dnd-light.svg" width="120" align="right" alt="Dale is heads down">
+  <source media="(prefers-color-scheme: dark)" srcset="faces/awake-dark.svg">
+  <img src="faces/awake-light.svg" width="120" align="right" alt="Dale is awake">
 </picture>
 
 ### G'day, I'm Dale 👋

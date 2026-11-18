@@ -1,9 +1,8 @@
 {
-  "state": "dnd",
-  "since": "2026-11-18T09:15:13+00:00",
-  "updated": "2026-11-18T09:15:13+00:00",
+  "state": "awake",
+  "since": "2026-11-18T09:15:56+00:00",
+  "updated": "2026-11-18T09:15:56+00:00",
   "source": "phone",
-  "expires": "2026-11-18T17:15:13+00:00",
-  "label": "heads down",
-  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/dnd-light.svg"
+  "label": "awake",
+  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/awake-light.svg"
 }
