@@ -1,9 +1,28 @@
 name: Update face
 
 on:
-  # Sent by the iPhone Shortcuts automations when Sleep Focus turns on or off.
+  # Sent by the iPhone Shortcuts automations when a Focus turns on (<mode>) or off
+  # (<mode>-off). sleep and wake are the Sleep Focus ones.
   repository_dispatch:
-    types: [sleep, wake]
+    types:
+      - sleep
+      - wake
+      - work
+      - work-off
+      - driving
+      - driving-off
+      - fitness
+      - fitness-off
+      - gaming
+      - gaming-off
+      - reading
+      - reading-off
+      - mindfulness
+      - mindfulness-off
+      - dnd
+      - dnd-off
+      - personal
+      - personal-off
   # Clock nudge: at 10pm Melbourne time go to sleep if still awake, at 7am wake up if still
   # asleep. Cron is UTC and Melbourne is UTC+11 in summer, UTC+10 in winter, so each needs
   # two UTC hours: 11-12 UTC (10pm), 20-21 UTC (7am). The script checks the local hour, so
