@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="faces/work-dark.svg">
-  <img src="faces/work-light.svg" width="120" align="right" alt="Dale is at work">
+  <source media="(prefers-color-scheme: dark)" srcset="faces/dnd-dark.svg">
+  <img src="faces/dnd-light.svg" width="120" align="right" alt="Dale is heads down">
 </picture>
 
 ### G'day, I'm Dale 👋

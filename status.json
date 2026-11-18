@@ -1,9 +1,9 @@
 {
-  "state": "work",
-  "since": "2026-11-18T09:14:02+00:00",
-  "updated": "2026-11-18T09:14:02+00:00",
+  "state": "dnd",
+  "since": "2026-11-18T09:15:13+00:00",
+  "updated": "2026-11-18T09:15:13+00:00",
   "source": "phone",
-  "expires": "2026-11-18T21:14:02+00:00",
-  "label": "at work",
-  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/work-light.svg"
+  "expires": "2026-11-18T17:15:13+00:00",
+  "label": "heads down",
+  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/dnd-light.svg"
 }
