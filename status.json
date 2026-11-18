@@ -1,6 +1,6 @@
 {
-  "state": "awake",
-  "since": "2026-11-17T20:37:23+00:00",
-  "updated": "2026-11-17T20:37:23+00:00",
-  "source": "clock"
+  "state": "asleep",
+  "since": "2026-11-18T08:40:00+00:00",
+  "updated": "2026-11-18T08:40:00+00:00",
+  "source": "phone"
 }
