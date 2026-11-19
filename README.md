@@ -1,8 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="faces/awake-dark.svg">
-  <img src="faces/awake-light.svg" width="120" align="right" alt="Dale is awake">
-</picture>
-
 ### G'day, I'm Dale 👋
 
 I build things in mostly Rust these days.
@@ -10,4 +5,4 @@ I build things in mostly Rust these days.
 - 🌀 **[maze.do.id.au](https://maze.do.id.au)**: mazes on squares, hexagons and beyond
 - 🌐 **[daleobrien.github.io](https://daleobrien.github.io)**: everything else
 
-<sub>The face follows my iPhone Focus modes, from asleep to at work. [See it here](https://status.do.id.au/).</sub>
+- 😴 **[status.do.id.au](https://status.do.id.au)**: what I'm up to right now, from asleep to at work
