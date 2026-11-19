@@ -146,7 +146,12 @@
             const ORDER = ["awake", "asleep", "work", "dnd", "reduce", "driving", "fitness", "gaming", "reading", "mindfulness"];
             // Every face has a little animation, always running, big face and grid alike.
             const ANIMATED = ["awake", "asleep", "work", "dnd", "reduce", "driving", "fitness", "gaming", "reading", "mindfulness"];
-            const faceSrc = (key, animate) => `faces/${key}${animate && ANIMATED.includes(key) ? "-animated" : ""}.svg`;
+            // The build (tools/build.py) fills FACES with each face's hashed file name.
+            const FACES = {};
+            const faceSrc = (key, animate) => {
+                const name = `${key}${animate && ANIMATED.includes(key) ? "-animated" : ""}`;
+                return FACES[name] || `faces/${name}.svg`;
+            };
             const row = document.getElementById("states");
             for (const key of ORDER) {
                 const li = document.createElement("li");

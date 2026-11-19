@@ -17,7 +17,7 @@ name: Status site
 on:
   push:
     branches: [main]
-    paths: ["site/**", "tools/minify.py", ".github/workflows/site.yml"]
+    paths: ["site/**", "tools/build.py", ".github/workflows/site.yml"]
   workflow_dispatch:
 
 permissions:
@@ -46,11 +46,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION || 'ap-southeast-2' }}
 
-      # site/ copied to dist/ with the HTML squeezed (whitespace and comments only).
+      # dist/: the page, plus its CSS, script and faces under hashed names.
       - name: Build
-        run: python3 tools/minify.py site dist
+        run: python3 tools/build.py site dist
 
-      # The files are small and keep their names, so browsers always check them
-      # (no-cache); anything no longer in site/ is removed.
+      # Hashed files first, cached for a year (a change gives a new name), then the
+      # page, always checked, so it never points at a file that isn't there yet.
+      # Last, anything not in this build (old hashed names) is deleted.
       - name: Upload
-        run: aws s3 sync dist/ "$BUCKET_PATH" --delete --cache-control no-cache
+        run: |
+          aws s3 cp dist/ "$BUCKET_PATH" --recursive --exclude index.html \
+            --cache-control "public, max-age=31536000, immutable"
+          aws s3 cp dist/index.html "$BUCKET_PATH" --cache-control no-cache
+          aws s3 sync dist/ "$BUCKET_PATH" --delete --size-only
