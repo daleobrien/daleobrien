@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="faces/fitness-dark.svg">
-  <img src="faces/fitness-light.svg" width="120" align="right" alt="Dale is working out">
+  <source media="(prefers-color-scheme: dark)" srcset="faces/work-dark.svg">
+  <img src="faces/work-light.svg" width="120" align="right" alt="Dale is at work">
 </picture>
 
 ### G'day, I'm Dale 👋

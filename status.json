@@ -1,9 +1,9 @@
 {
-  "state": "fitness",
-  "since": "2026-11-19T01:04:02+00:00",
-  "updated": "2026-11-19T01:04:02+00:00",
+  "state": "work",
+  "since": "2026-11-19T02:41:52+00:00",
+  "updated": "2026-11-19T02:41:52+00:00",
   "source": "phone",
-  "expires": "2026-11-19T04:04:02+00:00",
-  "label": "working out",
-  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/fitness-light.svg"
+  "expires": "2026-11-19T14:41:52+00:00",
+  "label": "at work",
+  "face": "https://raw.githubusercontent.com/daleobrien/daleobrien/main/faces/work-light.svg"
 }
