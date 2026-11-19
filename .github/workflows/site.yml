@@ -17,7 +17,7 @@ name: Status site
 on:
   push:
     branches: [main]
-    paths: ["site/**", ".github/workflows/site.yml"]
+    paths: ["site/**", "tools/minify.py", ".github/workflows/site.yml"]
   workflow_dispatch:
 
 permissions:
@@ -46,7 +46,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION || 'ap-southeast-2' }}
 
+      # site/ copied to dist/ with the HTML squeezed (whitespace and comments only).
+      - name: Build
+        run: python3 tools/minify.py site dist
+
       # The files are small and keep their names, so browsers always check them
       # (no-cache); anything no longer in site/ is removed.
       - name: Upload
-        run: aws s3 sync site/ "$BUCKET_PATH" --delete --cache-control no-cache
+        run: aws s3 sync dist/ "$BUCKET_PATH" --delete --cache-control no-cache
